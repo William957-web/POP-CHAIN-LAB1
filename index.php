@@ -114,7 +114,7 @@ body {
 <h1>Show 🐋 your best POP CHAIN</h1>
 <h3>p.s. have to be base64 encoded</h3>
   <form action="index.php" method="POST" class="input-group">
-    <input type="text" class="input-field" placeholder="POP CHAIN" name="input_data">
+    <input type="text" class="input-field" placeholder="POP CHAIN" name="pop" id="pop">
     <button type="submit" class="input-btn">Submit</button>
   </form>
 </div>
