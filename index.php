@@ -24,7 +24,7 @@ class Note{
 		return 'Record for '.$this->whale.' is : '.$this->content;
 	}
 	function record($whale, $content){
-		//check whether it's a attribute
+		//check whether it's an attribute
 		$test=$whale->$content;
 		if ($test!=NULL){
 			echo("It's probably an attribute");
