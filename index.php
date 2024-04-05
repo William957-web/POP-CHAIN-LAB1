@@ -20,7 +20,7 @@ class Note{
 		$this->whale=$whale;
 	}
 	function __toString(){
-		record($this->whale, $this->content);
+		$this->record($this->whale, $this->content);
 		return 'Record for '.$this->whale.' is : '.$this->content;
 	}
 	function record($content, $whale){
