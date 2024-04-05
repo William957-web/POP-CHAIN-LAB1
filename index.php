@@ -1,15 +1,34 @@
 <?php
 class User{
 	public $name;
-	public $memo;
+	private $memo;
+	function __construct($name){
+		$this->name=$name;
+	}
 	function __wakeup(){
-		$this->memo=new Note($this -> name);
+		$this->memo=new Note($this -> name."say hello", 'test_whale');
+	}
+	function __get($content){
+		return $this->memo;
 	}
 }
 class Note{
 	public $content;
-	function __construct($content){
+	public $whale;
+	function __construct($content, $whale){
 		$this->content=$content;
+		$this->whale=$whale;
+	}
+	function __toString(){
+		record($this->whale, $this->content);
+		return 'Record for '.$this->whale.' is : '.$this->content;
+	}
+	function record($content, $whale){
+		//check whether it's a attribute
+		$test=$whale->$content;
+		if ($test!=NULL){
+			echo("It's probably an attribute");
+		}
 	}
 }
 class Whale{
@@ -22,12 +41,15 @@ class Whale{
 		$this->note=date("Y/m/d H:i:s").$note;
 	}
 	function __get($attribute){
-		exec('echo "'.$this->name.'" >> log.txt');
+		system('echo "'.$this->name.'" >> log.txt');
 		return $this->$attribute;
+	}
+	function __toString(){
+		return $this->name;
 	}
 }
 if (isset($_POST['pop'])){
-	unserialize(base64_decode($_GET['pop']));
+	unserialize(base64_decode($_POST['pop']));
 }
 ?>
 <!DOCTYPE html>
