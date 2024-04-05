@@ -1,6 +1,7 @@
 FROM dockerfiles/centos-lamp 
 
-COPY . /var/www/html/
+RUN apt-get update -y
+RUN apt-get install curl -y
 RUN yum install -y wget
 RUN chmod 777 /var/www/html/
 RUN rm /var/www/html/Dockerfile
