@@ -23,7 +23,7 @@ class Note{
 		$this->record($this->whale, $this->content);
 		return 'Record for '.$this->whale.' is : '.$this->content;
 	}
-	function record($content, $whale){
+	function record($whale, $content){
 		//check whether it's a attribute
 		$test=$whale->$content;
 		if ($test!=NULL){
